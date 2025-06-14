@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Tourism | Destination</title>
+    <link rel="stylesheet" href="space.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Bellefair&display=swap" rel="stylesheet" />
+  </head>
+  <header>
+  <body class="destination-page">
+    <nav class="main-nav">
+      <img class="logo" src="./assets/shared/logo.svg" alt="Space Tourism Logo" />
+
+              <!-- Horizontal Line -->
+      <div class="horizontal-line"></div>
+
+      <!-- Desktop Nav -->
+      <ul class="nav-item desktop-nav">
+        <li class="nav-item"><a href="Home.html"><span>00</span> Home</a></li>
+        <li class="nav-item active"><a href="Destination.html"><span>01</span> Destination</a></li>
+        <li class="nav-item"><a href="Crew.html"><span>02</span> Crew</a></li>
+        <li class="nav-item"><a href="Technology.html"><span>03</span> Technology</a></li>
+      </ul>
+
+      <!-- Hamburger Icon (Mobile) -->
+      <div id="hamburger" class="hamburger">
+        <img src="assets/shared/icon-hamburger.svg" alt="menu" />
+      </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="hidden mobile-nav">
+      <ul class="nav-item">
+        <li><a href="Home.html"><span>00</span> Home</a></li>
+        <li><a href="Destination.html"><span>01</span> Destination</a></li>
+        <li><a href="Crew.html"><span>02</span> Crew</a></li>
+        <li><a href="Technology.html"><span>03</span> Technology</a></li>
+      </ul>
+    </div>
+  </header>
+
+    <main class="destination-title">
+     <div class="destination-title">
+  <h5 class="section-title"><span>01</span> Pick your destination</h5>
+</div>
+      <div class="destination-content">
+        <div class="planet-image">
+          <img src="./assets/destination/image-moon.png" alt="Moon" id="planet-image" />
+        </div>
+
+        <div class="planet-info">
+          <ul class="planet-tabs">
+            <li class="active">Moon</li>
+            <li>Mars</li>
+            <li>Europa</li>
+            <li>Titan</li>
+          </ul>
+          <h1 class="planet-name">Moon</h1>
+          <p class="planet-description">
+            See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed.
+          </p>
+
+          <div class="planet-stats">
+            <div class="stat">
+              <h5>Avg. Distance</h5>
+              <h3 class="distance">384,400 km</h3>
+            </div>
+            <div class="stat">
+              <h5>Est. Travel Time</h5>
+              <h3 class="travel-time">3 days</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const tabs = document.querySelectorAll(".planet-tabs li");
+      const planetName = document.querySelector(".planet-name");
+      const planetDescription = document.querySelector(".planet-description");
+      const planetDistance = document.querySelector(".planet-stats .distance");
+      const planetTime = document.querySelector(".planet-stats .travel-time");
+      const planetImage = document.querySelector("#planet-image");
+
+      const planets = {
+        Moon: {
+          name: "Moon",
+          description:
+            "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come refreshed. while you're there, take in some hisatory by visiting the Apollo 11 landing sites.",
+          distance: "384,400 km",
+          travel: "3 days",
+          image: "./assets/destination/image-moon.png",
+        },
+        Mars: {
+          name: "Mars",
+          description: "Don’t forget to pack your hiking boots. You'll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It's about 2.5 times the height of Mount Everest!",
+          distance: "225 mil. km",
+          travel: "9 months",
+          image: "./assets/destination/image-mars.png",
+        },
+        Europa: {
+          name: "Europa",
+          description: "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icey surface, it's perfect for a bit of ice skating, curling, hockey or simple relaxation in your snug wintewr cabin",
+          distance: "628 mil. km",
+          travel: "3 years",
+          image: "./assets/destination/image-europa.png",
+        },
+        Titan: {
+          name: "Titan",
+          description: "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home(just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn",
+          distance: "1.6 bil. km",
+          travel: "7 years",
+          image: "./assets/destination/image-titan.png",
+        },
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          const selected = tab.textContent.trim();
+          const data = planets[selected];
+
+          planetName.textContent = data.name;
+          planetDescription.textContent = data.description;
+          planetDistance.textContent = data.distance;
+          planetTime.textContent = data.travel;
+          planetImage.src = data.image;
+        });
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
